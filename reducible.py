@@ -102,7 +102,6 @@ def find_word(s, hash_table):
         index = (index + step) % size
     return False
 
-# TODO: Modify this function. You may delete this comment when you are done.
 def is_reducible(s, hash_table, hash_memo):
     """
     Determines if a string is reducible using a recursive check.
@@ -113,7 +112,7 @@ def is_reducible(s, hash_table, hash_memo):
     post: Returns True if s is reducible (also updates hash_memo by
           inserting s if reducible), otherwise returns False.
     """
-    if s == 'a' or s == 'i' or s == 'o':
+    if s in ('a', 'i', 'o'):
         return True
     if find_word(s, hash_memo):
         return True
@@ -142,7 +141,6 @@ def get_longest_words(string_list):
             longestlist.append(word)
     return longestlist
 
-# TODO: Modify this function. You may delete this comment when you are done.
 def main():
     """The main function that calculates the longest reducible words"""
     # create an empty word_list
@@ -186,14 +184,14 @@ def main():
     # print the reducible words in alphabetical order
     # one word per line
     wordlist = []
-    try: 
+    try:
         while True:
             word = input().strip()
             if word:
                 wordlist.append(word)
     except EOFError:
         pass
-    n = 2 * len(word_list)
+    n = 2 * len(wordlist)
     while not is_prime(n):
         n += 1
     hash_table = [''] * n
